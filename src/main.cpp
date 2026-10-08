@@ -413,7 +413,8 @@ void importFile(std::filesystem::path const& path) {
 			static_cast<GLubyte>(std::clamp(std::lround(c[1]), 0L, 255L)),
 			static_cast<GLubyte>(std::clamp(std::lround(c[2]), 0L, 255L)),
 		};
-		action->m_opacity = std::clamp(c[3] / 255.f, 0.f, 1.f);
+		float opacity = c[3] / 255.f;
+		action->m_opacity = std::max(0.f, std::min(opacity, 1.f));
 	}
 
 	// where to put it: the middle of what the editor is currently showing
