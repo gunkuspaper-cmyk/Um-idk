@@ -1,95 +1,100 @@
 {
-	"geode": "5.9.0",
-	"gd": "2.2081",
-	"id": "Canbean.geometrize-importer",
-	"name": "Geometrize Importer",
-	"version": "v1.0.0",
-	"developer": "Canbean",
-	"description": "Imports Geometrize JSON into the editor. Supports every shape type: rectangle, rotated rectangle, triangle, ellipse, rotated ellipse, circle, line and quadratic bezier.",
-	"settings": {
-		"square-id": {
-			"name": "Square object ID",
-			"description": "Object ID used for rectangles, rotated rectangles, lines and beziers. Should be a plain solid 1x1 block (30 units).",
-			"type": "int",
-			"default": 211,
-			"min": 1,
-			"max": 5000
-		},
-		"circle-id": {
-			"name": "Circle object ID",
-			"description": "Object ID used for circles and ellipses. Should be a solid filled circle that is 1x1 block (30 units) across.",
-			"type": "int",
-			"default": 1764,
-			"min": 1,
-			"max": 5000
-		},
-		"triangle-id": {
-			"name": "Triangle object ID",
-			"description": "Object ID used for triangles. Must be a solid right-isosceles triangle that fills a 1x1 block (30 units). Each Geometrize triangle is built from two of these.",
-			"type": "int",
-			"default": 289,
-			"min": 1,
-			"max": 5000
-		},
-		"triangle-right-angle-right": {
-			"name": "Triangle right angle on the right",
-			"description": "ON if the right angle of your triangle object is in its bottom-right corner, OFF if it is in the bottom-left corner. If imported triangles look mirrored or broken, flip this.",
-			"type": "bool",
-			"default": true
-		},
-		"units-per-pixel": {
-			"name": "Units per image pixel",
-			"description": "Size of one Geometrize pixel in GD units. A block is 30 units, so 0.5 makes a 400px-wide image about 200 units wide.",
-			"type": "float",
-			"default": 0.5,
-			"min": 0.01,
-			"max": 30.0
-		},
-		"line-thickness": {
-			"name": "Line thickness (image pixels)",
-			"description": "Thickness used for Geometrize line and bezier shapes.",
-			"type": "float",
-			"default": 1.0,
-			"min": 0.1,
-			"max": 50.0
-		},
-		"bezier-segments": {
-			"name": "Bezier segments",
-			"description": "How many straight segments each quadratic bezier is approximated with.",
-			"type": "int",
-			"default": 12,
-			"min": 2,
-			"max": 64
-		},
-		"color-channels": {
-			"name": "Color channels to use",
-			"description": "Geometrize colors are merged into at most this many color channels (k-means). More channels = better colors, but uses more of the 999 available.",
-			"type": "int",
-			"default": 100,
-			"min": 1,
-			"max": 900
-		},
-		"start-channel": {
-			"name": "First color channel",
-			"description": "The first color channel ID to use. The mod overwrites these channels, so pick a free range.",
-			"type": "int",
-			"default": 100,
-			"min": 1,
-			"max": 999
-		},
-		"import-background": {
-			"name": "Import background rectangle",
-			"description": "Geometrize's first shape is a full-image background rectangle. Turn this off to skip it.",
-			"type": "bool",
-			"default": true
-		},
-		"shape-limit": {
-			"name": "Shape limit (0 = all)",
-			"description": "Only import the first N Geometrize shapes. Useful for testing and keeping object counts down.",
-			"type": "int",
-			"default": 0,
-			"min": 0,
-			"max": 100000
-		}
-	}
+  "geode": "5.9.0",
+  "gd": {
+    "win": "*",
+    "android": "*",
+    "mac": "*",
+    "ios": "*"
+  },
+  "id": "Canbean.geometrize-importer",
+  "name": "Geometrize Importer",
+  "version": "v1.0.0",
+  "developer": "Canbean",
+  "description": "Imports Geometrize JSON into the editor. Supports every shape type: rectangle, rotated rectangle, triangle, ellipse, rotated ellipse, circle, line and quadratic bezier.",
+  "settings": {
+    "square-id": {
+      "name": "Square object ID",
+      "description": "Object ID used for rectangles, rotated rectangles, lines and beziers. Should be a plain solid 1x1 block (30 units).",
+      "type": "int",
+      "default": 211,
+      "min": 1,
+      "max": 5000
+    },
+    "circle-id": {
+      "name": "Circle object ID",
+      "description": "Object ID used for circles and ellipses. Should be a solid filled circle that is 1x1 block (30 units) across.",
+      "type": "int",
+      "default": 1764,
+      "min": 1,
+      "max": 5000
+    },
+    "triangle-id": {
+      "name": "Triangle object ID",
+      "description": "Object ID used for triangles. Must be a solid right-isosceles triangle that fills a 1x1 block (30 units). Each Geometrize triangle is built from two of these.",
+      "type": "int",
+      "default": 289,
+      "min": 1,
+      "max": 5000
+    },
+    "triangle-right-angle-right": {
+      "name": "Triangle right angle on the right",
+      "description": "ON if the right angle of your triangle object is in its bottom-right corner, OFF if it is in the bottom-left corner. If imported triangles look mirrored or broken, flip this.",
+      "type": "bool",
+      "default": true
+    },
+    "units-per-pixel": {
+      "name": "Units per image pixel",
+      "description": "Size of one Geometrize pixel in GD units. A block is 30 units, so 0.5 makes a 400px-wide image about 200 units wide.",
+      "type": "float",
+      "default": 0.5,
+      "min": 0.01,
+      "max": 30.0
+    },
+    "line-thickness": {
+      "name": "Line thickness (image pixels)",
+      "description": "Thickness used for Geometrize line and bezier shapes.",
+      "type": "float",
+      "default": 1.0,
+      "min": 0.1,
+      "max": 50.0
+    },
+    "bezier-segments": {
+      "name": "Bezier segments",
+      "description": "How many straight segments each quadratic bezier is approximated with.",
+      "type": "int",
+      "default": 12,
+      "min": 2,
+      "max": 64
+    },
+    "color-channels": {
+      "name": "Color channels to use",
+      "description": "Geometrize colors are merged into at most this many color channels (k-means). More channels = better colors, but uses more of the 999 available.",
+      "type": "int",
+      "default": 100,
+      "min": 1,
+      "max": 900
+    },
+    "start-channel": {
+      "name": "First color channel",
+      "description": "The first color channel ID to use. The mod overwrites these channels, so pick a free range.",
+      "type": "int",
+      "default": 100,
+      "min": 1,
+      "max": 999
+    },
+    "import-background": {
+      "name": "Import background rectangle",
+      "description": "Geometrize's first shape is a full-image background rectangle. Turn this off to skip it.",
+      "type": "bool",
+      "default": true
+    },
+    "shape-limit": {
+      "name": "Shape limit (0 = all)",
+      "description": "Only import the first N Geometrize shapes. Useful for testing and keeping object counts down.",
+      "type": "int",
+      "default": 0,
+      "min": 0,
+      "max": 100000
+    }
+  }
 }
